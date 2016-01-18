@@ -101,12 +101,32 @@ function codeFriend() {
   After it's been invoked 'N' number of times, return 'STOP'.
 */
 
-function fnCounter(function, N) {
+// function fnCounter(function, n) {
+//   var numRuns = 0;
+//   return function() {
+//       if(numRuns > n) {
+//         function();
+//         n++;
+//       } else {
+//         return "stop";
+//       }
+//     }
+//   }
 
-  for (i=0, i<=N, i++)
-  return;
-}
 
+function fnCounter(function, n) {
+  var i = n;
+    return function() {
+      if(i > 0) {
+        function()
+        i++;
+      }
+      return "stop";
+    }
+  }
+
+var innrFn = fnCounter(10);
+innrFn();
 
 //Next Problem
 
@@ -115,24 +135,28 @@ function fnCounter(function, N) {
 /*
   var counter = function(){
     for (var i=1; i<=5; i++) {
-      setTimeout( function timer(){
+      num(i);
+      function num(i) {
+      setTimeout(function timer(){
           console.log( i );
       }, i*1000 );
     }
-  };
+  }
+};
+counter();
 
   Above you have a function named counter. Examine the function (without running the code)
   then below write what you expect to happen when the funciton is invoked.
   *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
-    //
+    //1000-5000
 
 
-  Now, run the function in your console and note what happpens.
+  Now, run the function in your console and note what happens.
 
   Was your answer right or wrong?
 
-    //Answer Here
+    //undefined then 1-5 in 1000ms increments (once fixed)
 
 
   Fix the counter function so that it works the way you expect it to work.
