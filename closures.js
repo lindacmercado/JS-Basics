@@ -114,19 +114,19 @@ function codeFriend() {
 //   }
 
 
-function fnCounter(function, n) {
-  var i = n;
-    return function() {
-      if(i > 0) {
-        function()
-        i++;
-      }
-      return "stop";
-    }
-  }
-
-var innrFn = fnCounter(10);
-innrFn();
+// function fnCounter(function, n) {
+//   var i = n;
+//     return function() {
+//       if(i > 0) {
+//         function()
+//         i++;
+//       }
+//       return "stop";
+//     }
+  // }
+//
+// var innrFn = fnCounter(10);
+// innrFn();
 
 //Next Problem
 
@@ -163,7 +163,17 @@ counter();
   (logging 1 then 2 then 3, etc) (Note: No unit test for this one because of the timeout)
 */
 
-    //Code Here
+var counter = function(){
+  for (var i=1; i<=5; i++) {
+    num(i);
+    function num(i) {
+    setTimeout(function timer(){
+        console.log( i );
+    }, i*1000 );
+  }
+}
+};
+counter();
 
 
 
@@ -183,3 +193,12 @@ counter();
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
+
+var funcArray = [];
+for(var i = 0; i <6; i++) {
+  (function(i) {
+    funcArray.push(
+    function() {console.log(i);}
+  );
+}) (i);
+}
