@@ -195,10 +195,10 @@ counter();
 */
 
 var funcArray = [];
-for(var i = 0; i <6; i++) {
+for(var i = 1; i <6; i++) {
   (function(i) {
-    funcArray.push(
-    function() {console.log(i);}
-  );
-}) (i);
+    // funcArray.push(
+    (function() { console.log(i);}
+    );
+  }) (i);
 }
